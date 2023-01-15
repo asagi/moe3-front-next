@@ -3,7 +3,7 @@ import { TwitterAuthProvider } from 'firebase/auth';
 import { signInWithRedirect } from 'firebase/auth';
 import { getRedirectResult } from 'firebase/auth';
 import { getAdditionalUserInfo } from 'firebase/auth';
-import { auth } from '@/firebase';
+import { auth } from '@/components/firebase/firebase';
 
 function FirebaseAuthTwitterButton() {
   const clickButton = () => {

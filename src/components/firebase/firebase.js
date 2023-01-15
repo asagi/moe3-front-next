@@ -1,3 +1,4 @@
+import { getApps } from 'firebase/app';
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 
@@ -11,6 +12,8 @@ const firebaseConfig = {
 };
 
 console.log(firebaseConfig);
-initializeApp(firebaseConfig);
+if (getApps().length === 0) {
+  initializeApp(firebaseConfig);
+}
 
 export const auth = getAuth();
