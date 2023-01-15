@@ -7,11 +7,17 @@
     "source.fixAll.eslint": true,
     "source.fixAll.stylelint": true
   },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[css]": {
-    "editor.formatOnSave": false
+    "editor.formatOnSave": true
   },
   "[scss]": {
-    "editor.formatOnSave": false
+    "editor.formatOnSave": true
   },
   "css.validate": false,
   "scss.validate": false
