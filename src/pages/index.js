@@ -1,7 +1,7 @@
 import Head from 'next/head';
 
-import FirebaseAuthTwitterButton from '@/firebase/FirebaseAuthTwitterButton';
-import FirebaseAuthSignoutButton from '@/firebase/FirebaseAuthSignoutButton';
+import FirebaseAuthTwitterButton from '@/components/firebase/FirebaseAuthTwitterButton';
+import FirebaseAuthSignoutButton from '@/components/firebase/FirebaseAuthSignoutButton';
 
 export default function Home() {
   return (
@@ -12,6 +12,8 @@ export default function Home() {
       </Head>
 
       <main>
+        <h1 className='text-3xl font-bold underline'>You can use Tailwind</h1>
+
         <FirebaseAuthTwitterButton />
         <FirebaseAuthSignoutButton />
       </main>
