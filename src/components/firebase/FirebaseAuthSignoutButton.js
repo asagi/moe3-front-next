@@ -13,12 +13,15 @@ const clickButton = () => {
     });
 };
 
-function FirebaseAuthSignoutButton() {
+/**
+ * Component for firebase auth signout.
+ *
+ * @returns {object} component
+ */
+export default function FirebaseAuthSignoutButton() {
   return (
     <div>
       <button onClick={clickButton}>ログアウト</button>
     </div>
   );
 }
-
-export default FirebaseAuthSignoutButton;
