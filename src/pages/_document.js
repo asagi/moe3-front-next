@@ -1,7 +1,7 @@
 import { Html, Head, Main, NextScript } from 'next/document';
 
 /**
- * @returns {object} html template
+ * @returns {?} template object
  */
 export default function Document() {
   return (

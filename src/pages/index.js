@@ -6,7 +6,7 @@ import FirebaseAuthSignoutButton from '@/components/firebase/FirebaseAuthSignout
 /**
  * Home page.
  *
- * @returns {object} page
+ * @returns {?} page
  */
 export default function Home() {
   return (

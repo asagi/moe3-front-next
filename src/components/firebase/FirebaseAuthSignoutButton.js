@@ -16,7 +16,7 @@ const clickButton = () => {
 /**
  * Component for firebase auth signout.
  *
- * @returns {object} component
+ * @returns {?} component
  */
 export default function FirebaseAuthSignoutButton() {
   return (

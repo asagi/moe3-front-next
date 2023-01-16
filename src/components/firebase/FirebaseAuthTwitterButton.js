@@ -8,7 +8,7 @@ import { auth } from '@/components/firebase/firebase';
 /**
  * Component for firebase auth signin with twitter.
  *
- * @returns {object} component
+ * @returns {?} component
  */
 export default function FirebaseAuthTwitterButton() {
   const clickButton = () => {
