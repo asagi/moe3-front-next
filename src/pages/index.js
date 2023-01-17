@@ -3,6 +3,11 @@ import Head from 'next/head';
 import FirebaseAuthTwitterButton from '@/components/firebase/FirebaseAuthTwitterButton';
 import FirebaseAuthSignoutButton from '@/components/firebase/FirebaseAuthSignoutButton';
 
+/**
+ * Home page.
+ *
+ * @returns {?} page
+ */
 export default function Home() {
   return (
     <div>

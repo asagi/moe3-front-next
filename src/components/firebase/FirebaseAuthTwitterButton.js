@@ -5,7 +5,12 @@ import { getRedirectResult } from 'firebase/auth';
 import { getAdditionalUserInfo } from 'firebase/auth';
 import { auth } from '@/components/firebase/firebase';
 
-function FirebaseAuthTwitterButton() {
+/**
+ * Component for firebase auth signin with twitter.
+ *
+ * @returns {?} component
+ */
+export default function FirebaseAuthTwitterButton() {
   const clickButton = () => {
     signInWithRedirect(auth, new TwitterAuthProvider());
   };
@@ -37,5 +42,3 @@ function FirebaseAuthTwitterButton() {
     </div>
   );
 }
-
-export default FirebaseAuthTwitterButton;
