@@ -3,7 +3,7 @@ import { TwitterAuthProvider } from 'firebase/auth';
 import { signInWithRedirect } from 'firebase/auth';
 import { getRedirectResult } from 'firebase/auth';
 import { getAdditionalUserInfo } from 'firebase/auth';
-import { auth } from '@/components/firebase/firebase';
+import { auth } from '@/lib/firebase';
 
 /**
  * Component for firebase auth signin with twitter.
