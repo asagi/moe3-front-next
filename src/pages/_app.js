@@ -1,4 +1,5 @@
 import '@/styles/globals.scss';
+import SvgResources from '@/resources/resources.svg';
 
 /**
  * @param {object} props page context
@@ -7,5 +8,10 @@ import '@/styles/globals.scss';
  * @returns {?} page
  */
 export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <SvgResources className='hidden' />
+      <Component {...pageProps} />
+    </>
+  );
 }

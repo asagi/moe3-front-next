@@ -1,0 +1,125 @@
+<!-- ローカルファイルとして開いても svg は表示されない -->
+<html>
+  <body>
+    <style>
+      body {
+        background-color: rgba(67, 163, 163, 0.562);
+      }
+      svg {
+        max-width: 100%;
+      }
+      .armies,
+      .fleets {
+        margin: 20px;
+      }
+
+      .armies svg,
+      .fleets svg {
+        filter: drop-shadow(1px 1px 3px #000000);
+        width: 48px;
+        height: 48px;
+      }
+      svg.anchor {
+        width: 24px;
+        height: 24px;
+        margin: 16px 16px 0;
+        filter: none;
+      }
+
+      .map {
+        position: relative;
+        max-width: 880px;
+        height: 800px;
+        margin-bottom: 50px;
+      }
+      .map svg {
+        width: 880px;
+        height: 800px;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      svg.austria {
+        fill: #ff1865;
+      }
+      svg.england {
+        fill: #58aaff;
+      }
+      svg.france {
+        fill: #00f8ff;
+      }
+      svg.germany {
+        fill: #b0b0b0;
+      }
+      svg.italy {
+        fill: #6f6;
+      }
+      svg.russia {
+        fill: #ffffff;
+      }
+      svg.turky {
+        fill: #ffe700;
+      }
+    </style>
+    <div class="armies">
+      <svg class="austria">
+        <use href="../public/images/symbols.svg#army"></use>
+      </svg>
+
+      <svg class="england">
+        <use href="../public/images/symbols.svg#army"></use>
+      </svg>
+      <svg class="france">
+        <use href="../public/images/symbols.svg#army"></use>
+      </svg>
+      <svg class="germany">
+        <use href="../public/images/symbols.svg#army"></use>
+      </svg>
+      <svg class="italy">
+        <use href="../public/images/symbols.svg#army"></use>
+      </svg>
+      <svg class="russia">
+        <use href="../public/images/symbols.svg#army"></use>
+      </svg>
+      <svg class="turky">
+        <use href="../public/images/symbols.svg#army"></use>
+      </svg>
+    </div>
+
+    <div class="fleets">
+      <svg class="austria">
+        <use href="../public/images/symbols.svg#fleet"></use>
+      </svg>
+      <svg class="england">
+        <use href="../public/images/symbols.svg#fleet"></use>
+      </svg>
+      <svg class="france">
+        <use href="../public/images/symbols.svg#fleet"></use>
+      </svg>
+      <svg class="germany">
+        <use href="../public/images/symbols.svg#fleet"></use>
+      </svg>
+      <svg class="italy">
+        <use href="../public/images/symbols.svg#fleet"></use>
+      </svg>
+      <svg class="russia">
+        <use href="../public/images/symbols.svg#fleet"></use>
+      </svg>
+      <svg class="turky">
+        <use href="../public/images/symbols.svg#fleet"></use>
+      </svg>
+      <svg class="anchor">
+        <use href="../public/images/symbols.svg#anchor"></use>
+      </svg>
+    </div>
+
+    <div class="container">
+      <div class="map">
+        <svg>
+          <use href="../public/images/symbols.svg#map"></use>
+        </svg>
+      </div>
+    </div>
+  </body>
+</html>
