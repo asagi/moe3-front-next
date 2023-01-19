@@ -7,4 +7,12 @@
     @apply bg-blue-600 hover:bg-blue-500 text-white rounded px-4 py-2;
     @apply mt-2 mb-2;
   }
+
+  .map {
+    height: auto;
+    svg {
+      width: 660px;
+      height: 600px;
+    }
+  }
 }
