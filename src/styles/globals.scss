@@ -2,9 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  overflow-x: hidden;
+@layer base {
+  html {
+    overflow-x: hidden;
+  }
 }
+
+$MIN_WIDTH: 375px;
 
 // Button
 .btn-primary {
@@ -12,16 +16,27 @@ html {
   @apply mt-2 mb-2;
 }
 
+main {
+  position: relative;
+  max-width: 100vw;
+  min-width: $MIN_WIDTH;
+}
+
 // Map
 .map {
+  display: block;
   position: relative;
-  height: 600px;
+  max-width: 660px;
+  max-height: 600px;
+  width: 100%;
+  height: calc(600px / 660px * 100vw);
+  min-height: calc(600px / 660px * $MIN_WIDTH);
 
   svg {
     position: absolute;
     top: 0;
     left: 0;
-    width: 660px;
-    height: 600px;
+    width: 100%;
+    height: 100%;
   }
 }
