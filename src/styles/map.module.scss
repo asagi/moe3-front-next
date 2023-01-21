@@ -6,54 +6,39 @@
   pointer-events: fill;
 }
 
-.bul {
-  @extend .province;
-  fill: #0000ff;
-  &:hover {
-    fill: red;
-  }
-}
-.rum {
-  @extend .province;
-  fill: #ff0000;
-  &:hover {
-    fill: blue;
-  }
-}
-
 .sea {
   @extend .province;
   fill: #a0a3dfff;
 }
-.province_free {
+.free_province {
   @extend .province;
   fill: #ebdaadff;
 }
-.austrian_land {
+.austrian_province {
   @extend .province;
   fill: #ff9999ff;
 }
-.english_land {
+.english_province {
   @extend .province;
   fill: #99b4ffff;
 }
-.french_land {
+.french_province {
   @extend .province;
   fill: #99ffffff;
 }
-.german_land {
+.german_province {
   @extend .province;
   fill: #b5b5b5ff;
 }
-.italian_land {
+.italian_province {
   @extend .province;
   fill: #99ff99ff;
 }
-.russian_land {
+.russian_province {
   @extend .province;
   fill: #ffffffff;
 }
-.turkish_land {
+.turkish_province {
   @extend .province;
   fill: #f7ff66ff;
 }
