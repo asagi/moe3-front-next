@@ -1,0 +1,44 @@
+.frame {
+  pointer-events: none;
+}
+.province {
+  stroke: #1a1a1a;
+  pointer-events: fill;
+}
+
+.sea {
+  @extend .province;
+  fill: #a0a3dfff;
+}
+.free_province {
+  @extend .province;
+  fill: #ebdaadff;
+}
+.austrian_province {
+  @extend .province;
+  fill: #ff9999ff;
+}
+.english_province {
+  @extend .province;
+  fill: #99b4ffff;
+}
+.french_province {
+  @extend .province;
+  fill: #99ffffff;
+}
+.german_province {
+  @extend .province;
+  fill: #b5b5b5ff;
+}
+.italian_province {
+  @extend .province;
+  fill: #99ff99ff;
+}
+.russian_province {
+  @extend .province;
+  fill: #ffffffff;
+}
+.turkish_province {
+  @extend .province;
+  fill: #f7ff66ff;
+}
