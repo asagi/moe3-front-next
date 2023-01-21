@@ -23,7 +23,7 @@ export const initialData = {
   land: [
     { code: 'cly', owner: 'e' },
     { code: 'edi', owner: 'e' },
-    { code: 'lvn', owner: 'e' },
+    { code: 'lvp', owner: 'e' },
     { code: 'yor', owner: 'e' },
     { code: 'wal', owner: 'e' },
     { code: 'lon', owner: 'e' },
@@ -77,5 +77,29 @@ export const initialData = {
     { code: 'gre', owner: null },
     { code: 'rum', owner: null },
     { code: 'bul', owner: null }
+  ],
+  unit: [
+    { code: 'lon', kind: 'f', owner: 'e' },
+    { code: 'edi', kind: 'f', owner: 'e' },
+    { code: 'lvp', kind: 'a', owner: 'e' },
+    { code: 'par', kind: 'a', owner: 'f' },
+    { code: 'bre', kind: 'f', owner: 'f' },
+    { code: 'mar', kind: 'a', owner: 'f' },
+    { code: 'ber', kind: 'a', owner: 'g' },
+    { code: 'kie', kind: 'f', owner: 'g' },
+    { code: 'mun', kind: 'a', owner: 'g' },
+    { code: 'rom', kind: 'a', owner: 'i' },
+    { code: 'ven', kind: 'a', owner: 'i' },
+    { code: 'nap', kind: 'f', owner: 'i' },
+    { code: 'vie', kind: 'a', owner: 'a' },
+    { code: 'bud', kind: 'a', owner: 'a' },
+    { code: 'tri', kind: 'f', owner: 'a' },
+    { code: 'mos', kind: 'a', owner: 'r' },
+    { code: 'stp_sc', kind: 'f', owner: 'r' },
+    { code: 'war', kind: 'a', owner: 'r' },
+    { code: 'sev', kind: 'f', owner: 'r' },
+    { code: 'con', kind: 'a', owner: 't' },
+    { code: 'ank', kind: 'f', owner: 't' },
+    { code: 'smy', kind: 'a', owner: 't' }
   ]
 };

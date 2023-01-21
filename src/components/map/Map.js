@@ -4,21 +4,52 @@ import SvgResources from './resources.svg';
 import { initialData } from './initialData';
 
 const provincesOfSea = initialData.sea.map((prov, index) => {
-  return <use xlinkHref={'#' + prov.code} className={styles.sea} key={index} />;
+  return <use xlinkHref={`#${prov.code}`} className={styles.sea} key={index} />;
 });
 
+const getStyle = (owner, target) => {
+  if (owner === 'a') return styles[`austrian-${target}`];
+  if (owner === 'e') return styles[`english-${target}`];
+  if (owner === 'f') return styles[`french-${target}`];
+  if (owner === 'g') return styles[`german-${target}`];
+  if (owner === 'i') return styles[`italian-${target}`];
+  if (owner === 'r') return styles[`russian-${target}`];
+  if (owner === 't') return styles[`turkish-${target}`];
+  return styles[`free-${target}`];
+};
+
 const provincesOfLand = initialData.land.map((prov, index) => {
-  const className = (() => {
-    if (prov.owner === 'a') return styles.austrian_province;
-    if (prov.owner === 'e') return styles.english_province;
-    if (prov.owner === 'f') return styles.french_province;
-    if (prov.owner === 'g') return styles.german_province;
-    if (prov.owner === 'i') return styles.italian_province;
-    if (prov.owner === 'r') return styles.russian_province;
-    if (prov.owner === 't') return styles.turkish_province;
-    return styles.free_province;
-  })();
-  return <use xlinkHref={'#' + prov.code} className={className} key={index} />;
+  const ownerStyle = getStyle(prov.owner, 'province');
+  return <use xlinkHref={`#${prov.code}`} className={ownerStyle} key={index} />;
+});
+
+const units = initialData.unit.map((unit, index) => {
+  const unitKind = ((kind) => {
+    if (kind === 'a') return 'army';
+    if (kind === 'f') return 'fleet';
+    return null;
+  })(unit.kind);
+  if (!unitKind) return;
+  const prov = unit.code.split('_');
+  const ownerStyle = getStyle(unit.owner, 'unit');
+  const positionStyle = styles[`unit-on-${prov[0]}`];
+  return (
+    <svg className={`${ownerStyle} ${positionStyle}`} key={`svg-${index}`}>
+      <use xlinkHref={`#${unitKind}`} key={`unit-${index}`} />
+    </svg>
+  );
+});
+
+const anchors = initialData.unit.map((unit, index) => {
+  const prov = unit.code.split('_');
+  const positionStyle = styles[`anchor-on-${prov[0]}${prov[1] || ''}`];
+  return (
+    prov[1] && (
+      <svg className={positionStyle} key={`svg-${index}`}>
+        <use xlinkHref='#anchor' key={`anchor-${index}`} />
+      </svg>
+    )
+  );
 });
 
 /**
@@ -32,19 +63,25 @@ export default function Map() {
       <SvgResources className='hidden' />
       <div className='map'>
         {/* Map base */}
-        <svg>
-          <use xlinkHref='#map_base'></use>
+        <svg className={styles.base}>
+          <use xlinkHref='#map-base'></use>
         </svg>
 
-        <svg>
+        <svg className={styles.province}>
           {provincesOfSea}
           {provincesOfLand}
         </svg>
 
         {/* map frame */}
         <svg className={styles.frame}>
-          <use xlinkHref='#map_frame'></use>
+          <use xlinkHref='#map-frame'></use>
         </svg>
+
+        {/* units */}
+        <div className='units'>
+          {units}
+          {anchors}
+        </div>
       </div>
 
       <div className='army austria'>
