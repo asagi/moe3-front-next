@@ -1,44 +1,374 @@
+// for svg tags
+.base {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 .frame {
   pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 .province {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   stroke: #1a1a1a;
   pointer-events: fill;
 }
 
+// for province images
 .sea {
-  @extend .province;
   fill: #a0a3dfff;
 }
-.free_province {
-  @extend .province;
+.free-province {
   fill: #ebdaadff;
 }
-.austrian_province {
-  @extend .province;
+.austrian-province {
   fill: #ff9999ff;
 }
-.english_province {
-  @extend .province;
+.english-province {
   fill: #99b4ffff;
 }
-.french_province {
-  @extend .province;
+.french-province {
   fill: #99ffffff;
 }
-.german_province {
-  @extend .province;
+.german-province {
   fill: #b5b5b5ff;
 }
-.italian_province {
-  @extend .province;
+.italian-province {
   fill: #99ff99ff;
 }
-.russian_province {
-  @extend .province;
+.russian-province {
   fill: #ffffffff;
 }
-.turkish_province {
-  @extend .province;
+.turkish-province {
   fill: #f7ff66ff;
+}
+
+// for unit images for svg
+.unit {
+  filter: drop-shadow(0 0 1px #000000) drop-shadow(1px 1px 2px #000000) drop-shadow(0 0 1px #000000);
+  position: absolute;
+  width: 16px;
+  height: 16px;
+}
+.austrian-unit {
+  @extend .unit;
+  fill: #ff1865;
+}
+.english-unit {
+  @extend .unit;
+  fill: #58aaff;
+}
+.french-unit {
+  @extend .unit;
+  fill: #00f8ff;
+}
+.german-unit {
+  @extend .unit;
+  fill: #b0b0b0;
+}
+.italian-unit {
+  @extend .unit;
+  fill: #6f6;
+}
+.russian-unit {
+  @extend .unit;
+  fill: #ffffff;
+}
+.turkish-unit {
+  @extend .unit;
+  fill: #ffe700;
+}
+
+// unit position for svg tag
+.unit-on-nao {
+  @extend .unit;
+}
+.unit-on-nwg {
+  @extend .unit;
+}
+.unit-on-bar {
+  @extend .unit;
+}
+.unit-on-nth {
+  @extend .unit;
+}
+.unit-on-ska {
+  @extend .unit;
+}
+.unit-on-iri {
+  @extend .unit;
+}
+.unit-on-bot {
+  @extend .unit;
+}
+.unit-on-hel {
+  @extend .unit;
+}
+.unit-on-bal {
+  @extend .unit;
+}
+.unit-on-eng {
+  @extend .unit;
+}
+.unit-on-mao {
+  @extend .unit;
+}
+.unit-on-lyo {
+  @extend .unit;
+}
+.unit-on-tys {
+  @extend .unit;
+}
+.unit-on-adr {
+  @extend .unit;
+}
+.unit-on-wes {
+  @extend .unit;
+}
+.unit-on-bla {
+  @extend .unit;
+}
+.unit-on-aeg {
+  @extend .unit;
+}
+.unit-on-ion {
+  @extend .unit;
+}
+.unit-on-eas {
+  @extend .unit;
+}
+.unit-on-cly {
+  @extend .unit;
+}
+.unit-on-edi {
+  @extend .unit;
+  top: 7.5%;
+  left: 18.5%;
+}
+.unit-on-lvp {
+  @extend .unit;
+  top: 13%;
+  left: 13.5%;
+}
+.unit-on-yor {
+  @extend .unit;
+}
+.unit-on-wal {
+  @extend .unit;
+}
+.unit-on-lon {
+  @extend .unit;
+  top: 25.3%;
+  left: 20.5%;
+}
+.unit-on-bre {
+  @extend .unit;
+  top: 37.5%;
+  left: 16%;
+}
+.unit-on-pic {
+  @extend .unit;
+}
+.unit-on-par {
+  @extend .unit;
+  top: 43%;
+  left: 25%;
+}
+.unit-on-bur {
+  @extend .unit;
+}
+.unit-on-gas {
+  @extend .unit;
+}
+.unit-on-mar {
+  @extend .unit;
+  top: 57.5%;
+  left: 29%;
+}
+.unit-on-kie {
+  @extend .unit;
+  top: 33%;
+  left: 49%;
+}
+.unit-on-ber {
+  @extend .unit;
+  top: 33%;
+  left: 61.5%;
+}
+.unit-on-pru {
+  @extend .unit;
+}
+.unit-on-ruh {
+  @extend .unit;
+}
+.unit-on-mun {
+  @extend .unit;
+  top: 48%;
+  left: 49%;
+}
+.unit-on-sil {
+  @extend .unit;
+}
+.unit-on-pie {
+  @extend .unit;
+}
+.unit-on-ven {
+  @extend .unit;
+  top: 63%;
+  left: 52.5%;
+}
+.unit-on-tus {
+  @extend .unit;
+}
+.unit-on-rom {
+  @extend .unit;
+  top: 77.5%;
+  left: 45.7%;
+}
+.unit-on-apu {
+  @extend .unit;
+}
+.unit-on-nap {
+  @extend .unit;
+  top: 85.5%;
+  left: 43.5%;
+}
+.unit-on-tyr {
+  @extend .unit;
+}
+.unit-on-boh {
+  @extend .unit;
+}
+.unit-on-gal {
+  @extend .unit;
+}
+.unit-on-vie {
+  @extend .unit;
+  top: 57%;
+  left: 65%;
+}
+.unit-on-tri {
+  @extend .unit;
+  top: 67%;
+  left: 59.2%;
+}
+.unit-on-bud {
+  @extend .unit;
+  top: 68%;
+  left: 68.5%;
+}
+.unit-on-fin {
+  @extend .unit;
+}
+.unit-on-stp {
+  @extend .unit;
+  top: 16%;
+  left: 91%;
+}
+.unit-on-liv {
+  @extend .unit;
+}
+.unit-on-war {
+  @extend .unit;
+  top: 43%;
+  left: 75.5%;
+}
+.unit-on-mos {
+  @extend .unit;
+  top: 38%;
+  left: 91%;
+}
+.unit-on-ukr {
+  @extend .unit;
+}
+.unit-on-sev {
+  @extend .unit;
+  top: 65.5%;
+  left: 91%;
+}
+.unit-on-con {
+  @extend .unit;
+  top: 85.5%;
+  left: 80%;
+}
+.unit-on-ank {
+  @extend .unit;
+  top: 82.9%;
+  left: 88.8%;
+}
+.unit-on-smy {
+  @extend .unit;
+  top: 95%;
+  left: 92%;
+}
+.unit-on-arm {
+  @extend .unit;
+}
+.unit-on-syr {
+  @extend .unit;
+}
+.unit-on-nwy {
+  @extend .unit;
+}
+.unit-on-swe {
+  @extend .unit;
+}
+.unit-on-den {
+  @extend .unit;
+}
+.unit-on-hol {
+  @extend .unit;
+}
+.unit-on-bel {
+  @extend .unit;
+}
+.unit-on-spa {
+  @extend .unit;
+}
+.unit-on-por {
+  @extend .unit;
+}
+.unit-on-naf {
+  @extend .unit;
+}
+.unit-on-tun {
+  @extend .unit;
+}
+.unit-on-alb {
+  @extend .unit;
+}
+.unit-on-ser {
+  @extend .unit;
+}
+.unit-on-gre {
+  @extend .unit;
+}
+.unit-on-rum {
+  @extend .unit;
+}
+.unit-on-bul {
+  @extend .unit;
+}
+
+// anchor position for svg tag
+.anchor {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+}
+.anchor-on-stpsc {
+  @extend .anchor;
+  top: 22%;
+  left: 87%;
 }
