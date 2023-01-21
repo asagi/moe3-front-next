@@ -435,5 +435,12 @@
         style=" fill:none;fill-opacity:0;stroke:#000;stroke-width:3;stroke-dasharray:none;stroke-opacity:1"
         d=" M.013-.144V800.1h879.822V-.144Z" />
     </symbol>
+
+    <symbol id="supply-center" viewBox="0 0 512 512">
+      <path
+        d="M256 0C114.613 0 0 114.613 0 256s114.613 256 256 256 256-114.613 256-256S397.387 0 256 0zM127.613 370.782l13.113-229.572h65.597l6.564 101.669 78.709-55.758v53.427l75.42-53.427 17.387 183.661h-256.79z" />
+      <path
+        d="M282.242 281.952h30.984v30.984h-30.984zM194.242 281.952h31v30.984h-31z" />
+    </symbol>
   </defs>
 </svg>

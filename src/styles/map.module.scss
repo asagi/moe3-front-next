@@ -1,3 +1,33 @@
+// variables
+$POS_X_03: 13.9%;
+$POS_X_04: 18.5%;
+$POS_X_05: 22.9%;
+$POS_X_08: 36.4%;
+$POS_X_09: 41%;
+$POS_X_10: 45.5%;
+$POS_X_11: 50%;
+$POS_X_13: 59.2%;
+$POS_X_14: 63.5%;
+$POS_X_16: 73%;
+$POS_X_17: 77.4%;
+$POS_X_18: 82%;
+$POS_X_19: 86.6%;
+$POS_Y_01: 5.3%;
+$POS_Y_02: 10.1%;
+$POS_Y_05: 25.3%;
+$POS_Y_06: 30.3%;
+$POS_Y_07: 35.3%;
+$POS_Y_08: 40.1%;
+$POS_Y_10: 50.2%;
+$POS_Y_11: 55.2%;
+$POS_Y_12: 60.2%;
+$POS_Y_13: 65%;
+$POS_Y_14: 70.5%;
+$POS_Y_15: 75%;
+$POS_Y_16: 80.2%;
+$POS_Y_17: 85.2%;
+$POS_Y_19: 95.1%;
+
 // for svg tags
 .base {
   pointer-events: none;
@@ -52,6 +82,150 @@
 }
 .turkish-province {
   fill: #f7ff66ff;
+}
+
+// for supply center images
+.free-supply-center {
+  fill: #028200aff;
+}
+.austrian-supply-center {
+  fill: #330000ff;
+}
+.english-supply-center {
+  fill: #000d33ff;
+}
+.french-supply-center {
+  fill: #003333dd;
+}
+.german-supply-center {
+  fill: #191919ff;
+}
+.italian-supply-center {
+  fill: #003300ff;
+}
+.russian-supply-center {
+  fill: #ffffffff;
+  filter: drop-shadow(0 0 1px #000000ff) drop-shadow(0 0 1px #000000ff);
+}
+.turkish-supply-center {
+  fill: #303300ff;
+}
+
+.supply-center {
+  pointer-events: none;
+  position: absolute;
+  width: 12px;
+  height: 12px;
+}
+.supply-center-on-edi {
+  @extend .supply-center;
+  top: $POS_Y_01;
+  left: $POS_X_04;
+}
+.supply-center-on-lvp {
+  @extend .supply-center;
+  top: $POS_Y_02;
+  left: $POS_X_03;
+}
+.supply-center-on-lon {
+  @extend .supply-center;
+  top: $POS_Y_05;
+  left: $POS_X_04;
+}
+.supply-center-on-bre {
+  @extend .supply-center;
+  top: $POS_Y_07;
+  left: $POS_X_03;
+}
+.supply-center-on-par {
+  @extend .supply-center;
+  top: $POS_Y_08;
+  left: $POS_X_05;
+}
+.supply-center-on-mar {
+  @extend .supply-center;
+  top: $POS_Y_11;
+  left: $POS_X_04;
+}
+.supply-center-on-kie {
+  @extend .supply-center;
+  top: $POS_Y_05;
+  left: $POS_X_10;
+}
+.supply-center-on-ber {
+  @extend .supply-center;
+  top: $POS_Y_06;
+  left: $POS_X_13;
+}
+.supply-center-on-mun {
+  @extend .supply-center;
+  top: $POS_Y_10;
+  left: $POS_X_08;
+}
+.supply-center-on-ven {
+  @extend .supply-center;
+  top: $POS_Y_12;
+  left: $POS_X_11;
+}
+.supply-center-on-rom {
+  @extend .supply-center;
+  top: $POS_Y_15;
+  left: $POS_X_10;
+}
+.supply-center-on-nap {
+  @extend .supply-center;
+  top: $POS_Y_17;
+  left: $POS_X_09;
+}
+.supply-center-on-vie {
+  @extend .supply-center;
+  top: $POS_Y_11;
+  left: $POS_X_14;
+}
+.supply-center-on-tri {
+  @extend .supply-center;
+  top: $POS_Y_12;
+  left: $POS_X_13;
+}
+.supply-center-on-bud {
+  @extend .supply-center;
+  top: $POS_Y_13;
+  left: $POS_X_14;
+}
+.supply-center-on-stp {
+  @extend .supply-center;
+  top: $POS_Y_01;
+  left: $POS_X_19;
+}
+.supply-center-on-war {
+  @extend .supply-center;
+  top: $POS_Y_08;
+  left: $POS_X_16;
+}
+.supply-center-on-mos {
+  @extend .supply-center;
+  top: $POS_Y_06;
+  left: $POS_X_19;
+}
+.supply-center-on-sev {
+  @extend .supply-center;
+  top: $POS_Y_14;
+  left: $POS_X_18;
+}
+.supply-center-on-con {
+  @extend .supply-center;
+  top: $POS_Y_17;
+  left: $POS_X_17;
+}
+.supply-center-on-ank {
+  @extend .supply-center;
+  top: $POS_Y_16;
+  left: $POS_X_19;
+}
+.supply-center-on-smy {
+  @extend .supply-center;
+  top: $POS_Y_19;
+  left: $POS_X_19;
 }
 
 // for unit images for svg
@@ -153,12 +327,12 @@
 }
 .unit-on-edi {
   @extend .unit;
-  top: 7.5%;
+  top: 9%;
   left: 18.5%;
 }
 .unit-on-lvp {
   @extend .unit;
-  top: 13%;
+  top: 13.5%;
   left: 13.5%;
 }
 .unit-on-yor {
@@ -170,11 +344,11 @@
 .unit-on-lon {
   @extend .unit;
   top: 25.3%;
-  left: 20.5%;
+  left: 22%;
 }
 .unit-on-bre {
   @extend .unit;
-  top: 37.5%;
+  top: 38%;
   left: 16%;
 }
 .unit-on-pic {
@@ -233,7 +407,7 @@
 }
 .unit-on-rom {
   @extend .unit;
-  top: 77.5%;
+  top: 78%;
   left: 45.7%;
 }
 .unit-on-apu {
@@ -242,7 +416,7 @@
 .unit-on-nap {
   @extend .unit;
   top: 85.5%;
-  left: 43.5%;
+  left: 44.5%;
 }
 .unit-on-tyr {
   @extend .unit;
@@ -255,8 +429,8 @@
 }
 .unit-on-vie {
   @extend .unit;
-  top: 57%;
-  left: 65%;
+  top: 57.2%;
+  left: 65.5%;
 }
 .unit-on-tri {
   @extend .unit;

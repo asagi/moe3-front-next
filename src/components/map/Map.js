@@ -1,4 +1,3 @@
-import { GetServerSideProps } from 'next';
 import styles from '@/styles/map.module.scss';
 import SvgResources from './resources.svg';
 import { initialData } from './initialData';
@@ -23,7 +22,18 @@ const provincesOfLand = initialData.land.map((prov, index) => {
   return <use xlinkHref={`#${prov.code}`} className={ownerStyle} key={index} />;
 });
 
-const units = initialData.unit.map((unit, index) => {
+const supplyCenters = initialData.initialUnit.map((unit, index) => {
+  const prov = unit.code.split('_');
+  const ownerStyle = getStyle(unit.owner, 'supply-center');
+  const positionStyle = styles[`supply-center-on-${prov[0]}`];
+  return (
+    <svg className={`${ownerStyle} ${positionStyle}`} key={`svg-${index}`}>
+      <use xlinkHref='#supply-center' key={index} />
+    </svg>
+  );
+});
+
+const units = initialData.initialUnit.map((unit, index) => {
   const unitKind = ((kind) => {
     if (kind === 'a') return 'army';
     if (kind === 'f') return 'fleet';
@@ -40,7 +50,7 @@ const units = initialData.unit.map((unit, index) => {
   );
 });
 
-const anchors = initialData.unit.map((unit, index) => {
+const anchors = initialData.initialUnit.map((unit, index) => {
   const prov = unit.code.split('_');
   const positionStyle = styles[`anchor-on-${prov[0]}${prov[1] || ''}`];
   return (
@@ -71,6 +81,9 @@ export default function Map() {
           {provincesOfSea}
           {provincesOfLand}
         </svg>
+
+        {/* supply center */}
+        <div className='supply-centers'>{supplyCenters}</div>
 
         {/* map frame */}
         <svg className={styles.frame}>
