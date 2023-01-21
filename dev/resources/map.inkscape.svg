@@ -30,8 +30,8 @@
    showgrid="true"
    showguides="true"
    inkscape:zoom="1.4514587"
-   inkscape:cx="417.8555"
-   inkscape:cy="201.86589"
+   inkscape:cx="357.57132"
+   inkscape:cy="202.55485"
    inkscape:window-width="1920"
    inkscape:window-height="1009"
    inkscape:window-x="-8"
@@ -55,7 +55,7 @@
    inkscape:label="base"
    inkscape:groupmode="layer"
    id="layer1"
-   style="display:none;stroke-width:0.999775"
+   style="display:inline;stroke-width:0.999775"
    sodipodi:insensitive="true">
     <path
    id="path10033-3-4-90"
@@ -1016,7 +1016,7 @@
    inkscape:groupmode="layer"
    id="layer2"
    inkscape:label="frame"
-   style="display:none"
+   style="display:inline"
    sodipodi:insensitive="true">
     <path
    style="fill:none;fill-opacity:1;stroke:#1a1a1a;stroke-width:3;stroke-dasharray:none"

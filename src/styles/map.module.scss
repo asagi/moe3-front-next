@@ -1,36 +1,59 @@
-.sea {
+.frame {
+  pointer-events: none;
+}
+.province {
   stroke: #1a1a1a;
+  pointer-events: fill;
+}
+
+.bul {
+  @extend .province;
+  fill: #0000ff;
+  &:hover {
+    fill: red;
+  }
+}
+.rum {
+  @extend .province;
+  fill: #ff0000;
+  &:hover {
+    fill: blue;
+  }
+}
+
+.sea {
+  @extend .province;
   fill: #a0a3dfff;
 }
-.free_land {
-  stroke: #1a1a1a;
+.province_free {
+  @extend .province;
   fill: #ebdaadff;
 }
 .austrian_land {
-  stroke: #1a1a1a;
+  @extend .province;
   fill: #ff9999ff;
 }
 .english_land {
-  stroke: #1a1a1a;
+  @extend .province;
   fill: #99b4ffff;
 }
 .french_land {
-  stroke: #1a1a1a;
+  @extend .province;
   fill: #99ffffff;
 }
 .german_land {
-  stroke: #1a1a1a;
+  @extend .province;
   fill: #b5b5b5ff;
 }
 .italian_land {
-  stroke: #1a1a1a;
+  @extend .province;
   fill: #99ff99ff;
 }
 .russian_land {
-  stroke: #1a1a1a;
+  @extend .province;
   fill: #ffffffff;
 }
 .turkish_land {
-  stroke: #1a1a1a;
+  @extend .province;
   fill: #f7ff66ff;
 }
