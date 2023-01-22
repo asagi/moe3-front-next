@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-import Map from '@/components/map/Map';
+import Board from '@/components/board/Board';
 import FirebaseAuthTwitterButton from '@/components/firebase/FirebaseAuthTwitterButton';
 import FirebaseAuthSignoutButton from '@/components/firebase/FirebaseAuthSignoutButton';
 
@@ -19,7 +19,7 @@ export default function Home() {
 
       <main>
         <h1 className='text-3xl font-bold underline'>Diplomacy MOE3 Reboot</h1>
-        <Map />
+        <Board />
 
         <FirebaseAuthTwitterButton />
         <FirebaseAuthSignoutButton />

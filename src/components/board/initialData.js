@@ -1,5 +1,5 @@
 export const initialData = {
-  sea: [
+  seas: [
     { code: 'nao' },
     { code: 'nwg' },
     { code: 'bar' },
@@ -20,7 +20,7 @@ export const initialData = {
     { code: 'ion' },
     { code: 'eas' }
   ],
-  land: [
+  lands: [
     { code: 'cly', owner: 'e' },
     { code: 'edi', owner: 'e' },
     { code: 'lvp', owner: 'e' },
@@ -78,7 +78,7 @@ export const initialData = {
     { code: 'rum' },
     { code: 'bul' }
   ],
-  initialUnit: [
+  units: [
     { code: 'lon', kind: 'f', owner: 'e' },
     { code: 'edi', kind: 'f', owner: 'e' },
     { code: 'lvp', kind: 'a', owner: 'e' },
