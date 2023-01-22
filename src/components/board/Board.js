@@ -2,7 +2,7 @@ import styles from '@/styles/board.module.scss';
 import SvgResources from './resources.svg';
 import { initialData } from './initialData';
 
-const getStyleForOwner = (owner, target) => {
+const getOwnerStyleForTarget = (owner, target) => {
   if (owner === 'a') return styles[`austrian-${target}`];
   if (owner === 'e') return styles[`english-${target}`];
   if (owner === 'f') return styles[`french-${target}`];
@@ -19,7 +19,7 @@ const provincesOfSea = initialData.seas.map((prov, index) => {
 
 const supplyCenters = initialData.units.map((unit, index) => {
   const prov = unit.code.split('_');
-  const ownerStyle = getStyleForOwner(unit.owner, 'supply-center');
+  const ownerStyle = getOwnerStyleForTarget(unit.owner, 'supply-center');
   const positionStyle = styles[`supply-center-on-${prov[0]}`];
   return (
     <svg className={`${ownerStyle} ${positionStyle}`} key={`svg-${index}`}>
@@ -30,7 +30,7 @@ const supplyCenters = initialData.units.map((unit, index) => {
 
 const loadLands = (data) => {
   return data.lands.map((prov, index) => {
-    const ownerStyle = getStyleForOwner(prov.owner, 'province');
+    const ownerStyle = getOwnerStyleForTarget(prov.owner, 'province');
     return <use xlinkHref={`#${prov.code}`} className={ownerStyle} key={index} />;
   });
 };
@@ -44,7 +44,7 @@ const loadUnits = (data) => {
     })(unit.kind);
     if (!unitKind) return;
     const prov = unit.code.split('_');
-    const ownerStyle = getStyleForOwner(unit.owner, 'unit');
+    const ownerStyle = getOwnerStyleForTarget(unit.owner, 'unit');
     const positionStyle = styles[`unit-on-${prov[0]}`];
     return (
       <svg className={`${ownerStyle} ${positionStyle}`} key={`svg-${index}`}>
