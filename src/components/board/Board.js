@@ -13,17 +13,17 @@ const getOwnerStyleForTarget = (owner, target) => {
   return styles[`free-${target}`];
 };
 
-const provincesOfSea = initialData.seas.map((prov, index) => {
+const Seas = initialData.seas.map((prov, index) => {
   return <use xlinkHref={`#${prov.code}`} className={styles.sea} key={index} />;
 });
 
-const supplyCenters = initialData.units.map((unit, index) => {
+const SupplyCenters = initialData.units.map((unit, index) => {
   const prov = unit.code.split('_');
   const ownerStyle = getOwnerStyleForTarget(unit.owner, 'supply-center');
   const positionStyle = styles[`supply-center-on-${prov[0]}`];
   return (
-    <svg className={`${ownerStyle} ${positionStyle}`} key={`svg-${index}`}>
-      <use xlinkHref='#supply-center' key={index} />
+    <svg className={`${ownerStyle} ${positionStyle}`} key={index}>
+      <use xlinkHref='#supply-center' />
     </svg>
   );
 });
@@ -47,8 +47,8 @@ const loadUnits = (data) => {
     const ownerStyle = getOwnerStyleForTarget(unit.owner, 'unit');
     const positionStyle = styles[`unit-on-${prov[0]}`];
     return (
-      <svg className={`${ownerStyle} ${positionStyle}`} key={`svg-${index}`}>
-        <use xlinkHref={`#${unitKind}`} key={`unit-${index}`} />
+      <svg className={`${ownerStyle} ${positionStyle}`} key={index}>
+        <use xlinkHref={`#${unitKind}`} />
       </svg>
     );
   });
@@ -60,8 +60,8 @@ const loadAnchors = (data) => {
     const positionStyle = styles[`anchor-on-${prov[0]}${prov[1] || ''}`];
     return (
       prov[1] && (
-        <svg className={positionStyle} key={`svg-${index}`}>
-          <use xlinkHref='#anchor' key={`anchor-${index}`} />
+        <svg className={positionStyle} key={index}>
+          <use xlinkHref='#anchor' />
         </svg>
       )
     );
@@ -74,9 +74,9 @@ const loadAnchors = (data) => {
  * @returns {?} component
  */
 export default function Board({ boardData }) {
-  const lands = loadLands(boardData || initialData);
-  const units = loadUnits(boardData || initialData);
-  const anchors = loadAnchors(boardData || initialData);
+  const Lands = loadLands(boardData || initialData);
+  const Units = loadUnits(boardData || initialData);
+  const Anchors = loadAnchors(boardData || initialData);
 
   return (
     <>
@@ -89,12 +89,12 @@ export default function Board({ boardData }) {
 
         {/* provinces */}
         <svg className={styles.province}>
-          {provincesOfSea}
-          {lands}
+          {Seas}
+          {Lands}
         </svg>
 
         {/* supply centers */}
-        <div className='supply-centers'>{supplyCenters}</div>
+        <div className='supply-centers'>{SupplyCenters}</div>
 
         {/* board frame */}
         <svg className={styles.frame}>
@@ -103,8 +103,8 @@ export default function Board({ boardData }) {
 
         {/* units */}
         <div className='units'>
-          {units}
-          {anchors}
+          {Units}
+          {Anchors}
         </div>
       </div>
     </>
