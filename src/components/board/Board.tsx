@@ -2,7 +2,7 @@ import styles from '@/styles/board.module.scss';
 import SvgResources from './resources.svg';
 import { initialData } from './initialData';
 
-const getOwnerStyleForTarget = (owner, target) => {
+const getOwnerStyleForTarget = (target: string, owner?: string) => {
   if (owner === 'a') return styles[`austrian-${target}`];
   if (owner === 'e') return styles[`english-${target}`];
   if (owner === 'f') return styles[`french-${target}`];
@@ -13,13 +13,13 @@ const getOwnerStyleForTarget = (owner, target) => {
   return styles[`free-${target}`];
 };
 
-const Seas = initialData.seas.map((prov, index) => {
+const Seas = initialData.seas.map((prov: Province, index) => {
   return <use xlinkHref={`#${prov.code}`} className={styles.sea} key={index} />;
 });
 
-const SupplyCenters = initialData.units.map((unit, index) => {
+const SupplyCenters = initialData.units.map((unit: Unit, index) => {
   const prov = unit.code.split('_');
-  const ownerStyle = getOwnerStyleForTarget(unit.owner, 'supply-center');
+  const ownerStyle = getOwnerStyleForTarget('supply-center', unit.owner);
   const positionStyle = styles[`supply-center-on-${prov[0]}`];
   return (
     <svg className={`${ownerStyle} ${positionStyle}`} key={index}>
@@ -28,15 +28,15 @@ const SupplyCenters = initialData.units.map((unit, index) => {
   );
 });
 
-const loadLands = (data) => {
-  return data.lands.map((prov, index) => {
-    const ownerStyle = getOwnerStyleForTarget(prov.owner, 'province');
+const loadLands = (data: BoardData) => {
+  return data.lands.map((prov: Province, index) => {
+    const ownerStyle = getOwnerStyleForTarget('province', prov.owner);
     return <use xlinkHref={`#${prov.code}`} className={ownerStyle} key={index} />;
   });
 };
 
-const loadUnits = (data) => {
-  return data.units.map((unit, index) => {
+const loadUnits = (data: BoardData) => {
+  return data.units.map((unit: Unit, index) => {
     const unitKind = ((kind) => {
       if (kind === 'a') return 'army';
       if (kind === 'f') return 'fleet';
@@ -44,7 +44,7 @@ const loadUnits = (data) => {
     })(unit.kind);
     if (!unitKind) return;
     const prov = unit.code.split('_');
-    const ownerStyle = getOwnerStyleForTarget(unit.owner, 'unit');
+    const ownerStyle = getOwnerStyleForTarget('unit', unit.owner);
     const positionStyle = styles[`unit-on-${prov[0]}`];
     return (
       <svg className={`${ownerStyle} ${positionStyle}`} key={index}>
@@ -54,8 +54,8 @@ const loadUnits = (data) => {
   });
 };
 
-const loadAnchors = (data) => {
-  return data.units.map((unit, index) => {
+const loadAnchors = (data: BoardData) => {
+  return data.units.map((unit: Unit, index) => {
     const prov = unit.code.split('_');
     const positionStyle = styles[`anchor-on-${prov[0]}${prov[1] || ''}`];
     return (
@@ -68,12 +68,8 @@ const loadAnchors = (data) => {
   });
 };
 
-/**
- * @param {object} props pate properties
- * @param {object} props.boardData information of units and provinces
- * @returns {?} component
- */
-export default function Board({ boardData }) {
+type BoardProps = { boardData: BoardData };
+export default function Board({ boardData }: BoardProps): JSX.Element {
   const Lands = loadLands(boardData || initialData);
   const Units = loadUnits(boardData || initialData);
   const Anchors = loadAnchors(boardData || initialData);
