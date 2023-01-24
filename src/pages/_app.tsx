@@ -1,4 +1,5 @@
 import '@/styles/globals.scss';
+import { AppProps } from 'next/app';
 
 /**
  * @param {object} props page context
@@ -6,10 +7,6 @@ import '@/styles/globals.scss';
  * @param {Array} props.pageProps properties for the page
  * @returns {?} page
  */
-export default function App({ Component, pageProps }) {
-  return (
-    <>
-      <Component {...pageProps} />
-    </>
-  );
+export default function App({ Component, pageProps }: AppProps) {
+  return <Component {...pageProps} />;
 }
