@@ -68,7 +68,7 @@ const loadAnchors = (data: BoardData) => {
   });
 };
 
-type BoardProps = { boardData: BoardData };
+type BoardProps = { boardData?: BoardData };
 export default function Board({ boardData }: BoardProps): JSX.Element {
   const Lands = loadLands(boardData || initialData);
   const Units = loadUnits(boardData || initialData);
