@@ -1,6 +1,6 @@
 import styles from '@/styles/board.module.scss';
 import SvgResources from './resources.svg';
-import { initialData } from './initialData';
+import initialData from './initialData.json';
 
 const getOwnerStyleForTarget = (target: string, owner?: string) => {
   if (owner === 'a') return styles[`austrian-${target}`];
@@ -18,7 +18,7 @@ const Seas = initialData.seas.map((prov: Province, index) => {
 });
 
 const SupplyCenters = initialData.units.map((unit: Unit, index) => {
-  const prov = unit.code.split('_');
+  const prov = unit.province.split('_');
   const ownerStyle = getOwnerStyleForTarget('supply-center', unit.owner);
   const positionStyle = styles[`supply-center-on-${prov[0]}`];
   return (
@@ -43,7 +43,7 @@ const loadUnits = (data: BoardData) => {
       return null;
     })(unit.kind);
     if (!unitKind) return;
-    const prov = unit.code.split('_');
+    const prov = unit.province.split('_');
     const ownerStyle = getOwnerStyleForTarget('unit', unit.owner);
     const positionStyle = styles[`unit-on-${prov[0]}`];
     return (
@@ -56,7 +56,7 @@ const loadUnits = (data: BoardData) => {
 
 const loadAnchors = (data: BoardData) => {
   return data.units.map((unit: Unit, index) => {
-    const prov = unit.code.split('_');
+    const prov = unit.province.split('_');
     const positionStyle = styles[`anchor-on-${prov[0]}${prov[1] || ''}`];
     return (
       prov[1] && (
@@ -68,7 +68,6 @@ const loadAnchors = (data: BoardData) => {
   });
 };
 
-type BoardProps = { boardData?: BoardData };
 export default function Board({ boardData }: BoardProps): JSX.Element {
   const Lands = loadLands(boardData || initialData);
   const Units = loadUnits(boardData || initialData);

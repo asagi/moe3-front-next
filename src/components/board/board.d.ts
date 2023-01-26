@@ -1,7 +1,7 @@
 type Unit = {
   owner: string;
   kind: string;
-  code: string;
+  province: string;
 };
 
 type Province = {
@@ -14,3 +14,5 @@ type BoardData = {
   lands: Array<Province>;
   units: Array<Unit>;
 };
+
+type BoardProps = { boardData?: BoardData };
