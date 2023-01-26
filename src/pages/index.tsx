@@ -4,11 +4,6 @@ import Board from '@/components/board/Board';
 import FirebaseAuthTwitterButton from '@/components/firebase/FirebaseAuthTwitterButton';
 import FirebaseAuthSignoutButton from '@/components/firebase/FirebaseAuthSignoutButton';
 
-/**
- * Home page.
- *
- * @returns {?} page
- */
 export default function Home() {
   return (
     <div>
