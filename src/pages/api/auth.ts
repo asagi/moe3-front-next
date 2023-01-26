@@ -1,25 +1,27 @@
+import axios from 'axios';
 import { NextApiRequest, NextApiResponse } from 'next';
+import { moeApi } from '@/lib/apiUtils';
 
-type AuthResponse = {
-  status: number;
-  data: {
-    token: string;
-    admin: boolean;
+export default function handler(req: NextApiRequest, res: NextApiResponse) {
+  const twid = req.body.twid;
+  const body = req.body;
+  const headers = {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + req.body.token
+    }
   };
-};
 
-export default function handler(_req: NextApiRequest, res: NextApiResponse) {
-  // TODO: use axios
-  new Promise<AuthResponse>((resolve) => {
-    resolve({
-      status: 200,
-      data: { token: 'dummytoken', admin: false }
-    });
-  })
-    .then((response) => {
-      return res.status(response.status).json(response.data);
-    })
-    .catch((response) => {
-      console.log(response.data);
-    });
+  axios.interceptors.response.use(
+    (response) => response,
+    (error) => {
+      if (error.response?.status === 401) {
+      }
+      return Promise.reject(error);
+    }
+  );
+
+  axios.put(moeApi('/users/' + twid), body, headers).then((response) => {
+    return res.status(response.status).json(response.data);
+  });
 }

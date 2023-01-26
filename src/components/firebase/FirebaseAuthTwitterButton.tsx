@@ -1,8 +1,9 @@
-import { useEffect } from 'react';
+import axios from 'axios';
 import { TwitterAuthProvider } from 'firebase/auth';
 import { signInWithRedirect } from 'firebase/auth';
 import { getRedirectResult } from 'firebase/auth';
 import { getAdditionalUserInfo } from 'firebase/auth';
+import { useEffect } from 'react';
 import { auth } from '@/lib/firebase';
 
 export default function FirebaseAuthTwitterButton() {
@@ -31,7 +32,16 @@ export default function FirebaseAuthTwitterButton() {
           twid: details?.profile?.id,
           screen_name: details?.profile?.screen_name
         };
-        console.log(param);
+        console.log('hoge:' + JSON.stringify(param));
+        axios
+          .put('/api/auth', param)
+          .then((response) => {
+            console.log(response.data);
+            // TODO: set returned token to custom claim
+          })
+          .catch((e) => {
+            console.log(e.message);
+          });
       }
     });
   }, []);

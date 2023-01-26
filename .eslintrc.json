@@ -1,13 +1,22 @@
 {
-  "extends": ["next", "next/core-web-vitals", "prettier", "plugin:@typescript-eslint/recommended"],
-  "plugins": ["@typescript-eslint", "jsdoc"],
+  "extends": ["next/core-web-vitals", "prettier", "plugin:@typescript-eslint/recommended"],
+  "plugins": ["@typescript-eslint"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "sourceType": "module",
     "project": "./tsconfig.json"
   },
   "root": true,
-  "rules": {},
+  "rules": {
+    "import/order": [
+      "error",
+      {
+        "alphabetize": {
+          "order": "asc"
+        }
+      }
+    ]
+  },
   "overrides": [
     {
       "files": ["*.ts"],
