@@ -1,8 +1,7 @@
 import Head from 'next/head';
-
 import Board from '@/components/board/Board';
-import FirebaseAuthTwitterButton from '@/components/firebase/FirebaseAuthTwitterButton';
 import FirebaseAuthSignoutButton from '@/components/firebase/FirebaseAuthSignoutButton';
+import FirebaseAuthTwitterButton from '@/components/firebase/FirebaseAuthTwitterButton';
 
 export default function Home() {
   return (
