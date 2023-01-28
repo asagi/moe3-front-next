@@ -1,7 +1,5 @@
 import Head from 'next/head';
 import Board from '@/components/board/Board';
-import FirebaseAuthSignoutButton from '@/components/firebase/FirebaseAuthSignoutButton';
-import FirebaseAuthTwitterButton from '@/components/firebase/FirebaseAuthTwitterButton';
 
 export default function Home() {
   return (
@@ -14,9 +12,6 @@ export default function Home() {
       <main>
         <h1 className='text-3xl font-bold underline'>Diplomacy MOE3 Reboot</h1>
         <Board boardData={undefined} />
-
-        <FirebaseAuthTwitterButton />
-        <FirebaseAuthSignoutButton />
       </main>
     </div>
   );

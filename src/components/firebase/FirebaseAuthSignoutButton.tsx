@@ -1,22 +1,23 @@
 import { getAuth, signOut } from 'firebase/auth';
 
-const clickButton = () => {
-  const auth = getAuth();
-  signOut(auth)
-    .then(() => {
+export default function FirebaseAuthSignoutButton() {
+  const clickButton = async () => {
+    const auth = getAuth();
+    try {
+      await signOut(auth);
       // Sign-out successful.
       alert('サインアウトしました。');
-    })
-    .catch((error) => {
+    } catch (error) {
       // An error happened.
       console.error(error);
-    });
-};
+    }
+  };
 
-export default function FirebaseAuthSignoutButton() {
   return (
-    <div>
-      <button onClick={clickButton}>ログアウト</button>
-    </div>
+    <>
+      <button className='btn-secondary' onClick={clickButton}>
+        ログアウト
+      </button>
+    </>
   );
 }
