@@ -1,6 +1,8 @@
 import '@/styles/globals.scss';
 import { SharedOptions } from 'msw';
 import { AppProps } from 'next/app';
+import { Header } from '@/components/header/Header';
+import { AuthProvider } from '@/feature/auth/AuthProvider';
 
 if (process.env.NODE_ENV === 'development') {
   const options: SharedOptions = {
@@ -20,5 +22,10 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
-  return <Component {...pageProps} />;
+  return (
+    <AuthProvider>
+      <Header />
+      <Component {...pageProps} />
+    </AuthProvider>
+  );
 }
