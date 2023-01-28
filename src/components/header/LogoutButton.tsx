@@ -1,6 +1,6 @@
 import { getAuth, signOut } from 'firebase/auth';
 
-export default function FirebaseAuthSignoutButton() {
+export default function LogoutButton() {
   const clickButton = async () => {
     const auth = getAuth();
     try {

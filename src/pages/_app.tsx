@@ -1,8 +1,8 @@
-import '@/styles/globals.scss';
+import '~/styles/globals.scss';
 import { SharedOptions } from 'msw';
 import { AppProps } from 'next/app';
-import { Header } from '@/components/header/Header';
-import { AuthProvider } from '@/feature/auth/AuthProvider';
+import { Header } from '~/components/header/Header';
+import { AuthProvider } from '~/feature/auth/AuthProvider';
 
 if (process.env.NODE_ENV === 'development') {
   const options: SharedOptions = {
@@ -10,12 +10,12 @@ if (process.env.NODE_ENV === 'development') {
   };
   if (typeof window === 'undefined') {
     (async () => {
-      const { server } = await import('@/mocks/server');
+      const { server } = await import('~/mocks/server');
       server.listen(options);
     })();
   } else {
     (async () => {
-      const { worker } = await import('@/mocks/browser');
+      const { worker } = await import('~/mocks/browser');
       worker.start(options);
     })();
   }
