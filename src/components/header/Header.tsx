@@ -4,20 +4,19 @@ import TwitterLoginButton from './TwitterLoginButton';
 import { useAuthContext } from '~/feature/auth/AuthProvider';
 
 export const Header = () => {
+  const initialized = useRef<boolean>(false);
+
   const { user } = useAuthContext();
-  const authFlag = useRef<boolean>(false);
+  initialized.current = user !== undefined;
+
   const button = (() => {
     // logged in
     if (user) return <SignoutButton />;
     // logged out
-    if (authFlag.current) return <TwitterLoginButton />;
-    // loading
+    if (initialized.current) return <TwitterLoginButton />;
+    // now loading ...
     return <></>;
   })();
-
-  useEffect(() => {
-    authFlag.current = true;
-  }, [user]);
 
   return <>{button}</>;
 };
