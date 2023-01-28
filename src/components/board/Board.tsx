@@ -1,6 +1,6 @@
 import initialData from './initialData.json';
 import SvgResources from './resources.svg';
-import styles from '@/styles/board.module.scss';
+import styles from '~/styles/board.module.scss';
 
 const getOwnerStyleForTarget = (target: string, owner?: string) => {
   if (owner === 'a') return styles[`austrian-${target}`];
