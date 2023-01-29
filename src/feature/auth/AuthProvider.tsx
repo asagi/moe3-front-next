@@ -3,7 +3,7 @@ import { onAuthStateChanged } from '@firebase/auth';
 import axios from 'axios';
 import { getAdditionalUserInfo, getRedirectResult } from 'firebase/auth';
 import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
-import { auth } from '~/lib/firebase';
+import { auth } from '~/lib/firebase/client';
 
 type GlobalAuthState = { user: User | null | undefined };
 const initialState: GlobalAuthState = { user: undefined };
@@ -24,14 +24,13 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
         const details = getAdditionalUserInfo(result);
         const authParam = {
+          uid: user.uid,
           token: await user.getIdToken(true),
           twid: details?.profile?.id,
           screen_name: details?.profile?.screen_name
         };
-        console.log(authParam);
         const response = await axios.put('/api/auth', authParam);
-        console.log(response.data);
-        // TODO: set returned token to custom claim
+        console.log((await user.getIdTokenResult()).claims);
         setUser({ user });
       });
     } catch (error) {
