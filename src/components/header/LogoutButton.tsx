@@ -1,12 +1,11 @@
 import { getAuth, signOut } from 'firebase/auth';
 
-export default function LogoutButton() {
+export const LogoutButton = () => {
   const clickButton = async () => {
     const auth = getAuth();
     try {
       await signOut(auth);
       // Sign-out successful.
-      alert('サインアウトしました。');
     } catch (error) {
       // An error happened.
       console.error(error);
@@ -20,4 +19,4 @@ export default function LogoutButton() {
       </button>
     </>
   );
-}
+};
