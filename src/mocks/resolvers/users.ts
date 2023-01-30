@@ -1,6 +1,6 @@
 import { PathParams, ResponseResolver, RestContext, RestRequest } from 'msw';
 
-const put: ResponseResolver<RestRequest<never, PathParams<string>>, RestContext> = async (req, res, ctx) => {
+const put: ResponseResolver<RestRequest<never, PathParams<string>>, RestContext> = (req, res, ctx) => {
   return res(
     ctx.status(200),
     ctx.json({
