@@ -3,6 +3,7 @@ import { onAuthStateChanged } from '@firebase/auth';
 import axios from 'axios';
 import { getAdditionalUserInfo } from 'firebase/auth';
 import { getRedirectResult } from 'firebase/auth';
+import Router from 'next/router';
 import { getAuth } from '~/lib/firebase/client';
 import { createContext } from 'react';
 import { ReactNode } from 'react';
@@ -41,6 +42,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       await user.getIdToken(true);
       console.log((await user.getIdTokenResult()).claims);
       setUser({ user });
+
+      Router.push('/');
     });
 
     return () => {

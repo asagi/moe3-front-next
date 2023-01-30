@@ -1,18 +1,11 @@
-import { TwitterAuthProvider } from 'firebase/auth';
-import { signInWithRedirect } from 'firebase/auth';
-import { getAuth } from '~/lib/firebase/client';
+import Link from 'next/link';
 
 export const TwitterLoginButton = () => {
-  const clickButton = () => {
-    const auth = getAuth();
-    signInWithRedirect(auth, new TwitterAuthProvider());
-  };
-
   return (
     <>
-      <button className='btn-primary' onClick={clickButton}>
+      <Link className='btn-primary' href='/login'>
         Twitterアカウントでログイン
-      </button>
+      </Link>
     </>
   );
 };
