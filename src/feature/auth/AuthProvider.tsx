@@ -15,28 +15,31 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<GlobalAuthState>(initialState);
 
   useEffect(() => {
-    try {
-      return onAuthStateChanged(auth, async (user) => {
-        if (!user) return setUser({ user });
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      if (!user) return setUser({ user });
 
-        const result = await getRedirectResult(auth);
-        if (!result) return setUser({ user });
+      const result = await getRedirectResult(auth);
+      if (!result) return setUser({ user });
 
-        const details = getAdditionalUserInfo(result);
-        const authParam = {
-          uid: user.uid,
-          token: await user.getIdToken(true),
-          twid: details?.profile?.id,
-          screen_name: details?.profile?.screen_name
-        };
-        const response = await axios.put('/api/auth', authParam);
-        console.log((await user.getIdTokenResult()).claims);
-        setUser({ user });
-      });
-    } catch (error) {
-      setUser(initialState);
-      throw error;
-    }
+      const details = getAdditionalUserInfo(result);
+      if (!details) return setUser({ user });
+      if (!details.profile) return setUser({ user });
+
+      const authParam = {
+        uid: user.uid,
+        token: await user.getIdToken(true),
+        twid: details.profile.id,
+        screen_name: details.profile.screen_name
+      };
+      await axios.put('/api/auth', authParam);
+      await user.getIdToken(true);
+      console.log((await user.getIdTokenResult()).claims);
+      setUser({ user });
+    });
+
+    return () => {
+      unsubscribe();
+    };
   }, []);
 
   return (
