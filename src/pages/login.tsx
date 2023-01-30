@@ -7,7 +7,7 @@ import { useAuthContext } from '~/feature/auth/AuthProvider';
 import { getAuth } from '~/lib/firebase/client';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const referer = ctx.req.headers.referer ? ctx.req.headers.referer : '';
+  const referer = ctx.req.headers.referer || '';
   console.log(referer);
   return { props: { referer } };
 };
@@ -19,7 +19,7 @@ const Login = ({ referer }: { referer: string }) => {
     if (user) Router.push('/');
 
     // {referer !== ''}
-    //  => redirected from twitter auth page.
+    //  => page transition by next/link.
     // {referer === '' && user === null}
     //  => directly access and user initialized as logged out ( undefined -> null ).
     if (referer !== '' || (referer === '' && user === null)) {
