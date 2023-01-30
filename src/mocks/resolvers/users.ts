@@ -4,8 +4,9 @@ const put: ResponseResolver<RestRequest<never, PathParams<string>>, RestContext>
   return res(
     ctx.status(200),
     ctx.json({
-      token: 'abcdefg',
-      admin: false
+      token: 'mock-000000004',
+      admin: false,
+      name: 'mock-fugafuga'
     })
   );
 };
