@@ -15,4 +15,4 @@ if (getApps().length === 0) {
   initializeApp(firebaseConfig);
 }
 
-export const auth = getAuth();
+export { getAuth };

@@ -1,6 +1,6 @@
 import firebaseAdmin from 'firebase-admin';
 
-if (!firebaseAdmin.apps.length) {
+if (firebaseAdmin.apps.length === 0) {
   firebaseAdmin.initializeApp({
     credential: firebaseAdmin.credential.cert({
       projectId: process.env.FIREBASE_PROJECT_ID,

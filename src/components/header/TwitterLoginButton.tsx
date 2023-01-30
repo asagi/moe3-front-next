@@ -1,9 +1,10 @@
 import { TwitterAuthProvider } from 'firebase/auth';
 import { signInWithRedirect } from 'firebase/auth';
-import { auth } from '~/lib/firebase/client';
+import { getAuth } from '~/lib/firebase/client';
 
 export const TwitterLoginButton = () => {
   const clickButton = () => {
+    const auth = getAuth();
     signInWithRedirect(auth, new TwitterAuthProvider());
   };
 
