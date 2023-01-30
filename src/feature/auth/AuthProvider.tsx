@@ -1,9 +1,14 @@
 import type { User } from '@firebase/auth';
 import { onAuthStateChanged } from '@firebase/auth';
 import axios from 'axios';
-import { getAdditionalUserInfo, getRedirectResult } from 'firebase/auth';
-import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
-import { auth } from '~/lib/firebase/client';
+import { getAdditionalUserInfo } from 'firebase/auth';
+import { getRedirectResult } from 'firebase/auth';
+import { getAuth } from '~/lib/firebase/client';
+import { createContext } from 'react';
+import { ReactNode } from 'react';
+import { useContext } from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 type GlobalAuthState = { user: User | null | undefined };
 const initialState: GlobalAuthState = { user: undefined };
@@ -15,6 +20,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<GlobalAuthState>(initialState);
 
   useEffect(() => {
+    const auth = getAuth();
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (!user) return setUser({ user });
 
