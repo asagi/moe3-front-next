@@ -23,27 +23,32 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     const auth = getAuth();
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
-      if (!user) return setUser({ user });
+      try {
+        if (!user) return setUser({ user });
 
-      const result = await getRedirectResult(auth);
-      if (!result) return setUser({ user });
+        const result = await getRedirectResult(auth);
+        if (!result) return setUser({ user });
 
-      const details = getAdditionalUserInfo(result);
-      if (!details) return setUser({ user });
-      if (!details.profile) return setUser({ user });
+        const details = getAdditionalUserInfo(result);
+        if (!details) return setUser({ user });
+        if (!details.profile) return setUser({ user });
 
-      const authParam = {
-        uid: user.uid,
-        token: await user.getIdToken(true),
-        twid: details.profile.id,
-        screen_name: details.profile.screen_name
-      };
-      await axios.put('/api/auth', authParam);
-      await user.getIdToken(true);
-      console.log((await user.getIdTokenResult()).claims);
-      setUser({ user });
+        const authParam = {
+          uid: user.uid,
+          token: await user.getIdToken(true),
+          twid: details.profile.id,
+          screen_name: details.profile.screen_name
+        };
+        await axios.put('/api/auth', authParam);
+        await user.getIdToken(true);
+        console.log((await user.getIdTokenResult()).claims);
+        setUser({ user });
 
-      Router.push('/');
+        Router.push('/');
+      } catch (e) {
+        console.error('error in onAuthStateChanged callback');
+        Router.push('/');
+      }
     });
 
     return () => {

@@ -3,9 +3,9 @@ import Link from 'next/link';
 export const TwitterLoginButton = () => {
   return (
     <>
-      <Link className='btn-primary' href='/login'>
-        Twitterアカウントでログイン
-      </Link>
+      <button className='btn-primary'>
+        <Link href='/login'>Twitterアカウントでログイン</Link>
+      </button>
     </>
   );
 };
