@@ -1,15 +1,29 @@
+'use client';
+
 import type { User } from '@firebase/auth';
 import { onAuthStateChanged } from '@firebase/auth';
 import axios from 'axios';
 import { getAdditionalUserInfo } from 'firebase/auth';
 import { getRedirectResult } from 'firebase/auth';
-import Router from 'next/router';
+import { SharedOptions } from 'msw';
 import { getAuth } from '~/lib/firebase/client';
 import { createContext } from 'react';
 import { ReactNode } from 'react';
 import { useContext } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
+
+if (process.env.NODE_ENV === 'development') {
+  if (typeof window !== 'undefined') {
+    const options: SharedOptions = {
+      onUnhandledRequest: 'bypass'
+    };
+    (async () => {
+      const { worker } = await import('~/mocks/browser');
+      worker.start(options);
+    })();
+  }
+}
 
 type GlobalAuthState = { user: User | null | undefined };
 const initialState: GlobalAuthState = { user: undefined };
@@ -41,13 +55,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         };
         await axios.put('/api/auth', authParam);
         await user.getIdToken(true);
-        console.log((await user.getIdTokenResult()).claims);
+        const teoknResult = await user.getIdTokenResult();
+        console.log(teoknResult.claims);
         setUser({ user });
-
-        Router.push('/');
       } catch (e) {
         console.error('error in onAuthStateChanged callback');
-        Router.push('/');
       }
     });
 

@@ -20,5 +20,7 @@
     "editor.formatOnSave": true
   },
   "css.validate": false,
-  "scss.validate": false
+  "scss.validate": false,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true
 }
