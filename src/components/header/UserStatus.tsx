@@ -1,9 +1,9 @@
 'use client';
 
+import ClipLoader from 'react-spinners/ClipLoader';
 import { LogoutButton } from './LogoutButton';
 import { TwitterLoginButton } from './TwitterLoginButton';
 import { useAuthContext } from '~/feature/auth/AuthProvider';
-import ClipLoader from 'react-spinners/ClipLoader';
 
 export const UserStatus = () => {
   const { user } = useAuthContext();
