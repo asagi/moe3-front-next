@@ -1,3 +1,5 @@
+'use client';
+
 import { LogoutButton } from './LogoutButton';
 import { TwitterLoginButton } from './TwitterLoginButton';
 import { useAuthContext } from '~/feature/auth/AuthProvider';
