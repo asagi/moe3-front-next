@@ -15,7 +15,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang='ja'>
       <head />
       <body>
-        <AuthProvider>{children}</AuthProvider>
+        <AuthProvider>
+          <div className='sm:container sm:mx-auto sm:max-w-screen-sm'>{children}</div>
+        </AuthProvider>
       </body>
     </html>
   );
