@@ -234,6 +234,11 @@ $POS_Y_19: 95.1%;
   position: absolute;
   width: 16px;
   height: 16px;
+
+  @media (min-width: 640px) {
+    width: 24px;
+    height: 24px;
+  }
 }
 .austrian-unit {
   @extend .unit;
@@ -540,6 +545,11 @@ $POS_Y_19: 95.1%;
   position: absolute;
   width: 12px;
   height: 12px;
+
+  @media (min-width: 640px) {
+    width: 18px;
+    height: 18px;
+  }
 }
 .anchor-on-stpsc {
   @extend .anchor;
