@@ -5,7 +5,7 @@ export default function WithHeaderLayout({ children }: { children: React.ReactNo
   return (
     <>
       <Header />
-      <div>{children}</div>
+      {children}
     </>
   );
 }
